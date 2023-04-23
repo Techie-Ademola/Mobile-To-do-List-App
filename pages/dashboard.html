@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App | Splashscreen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/list.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="logout" onclick="logout()">
+            <ion-icon name="power"></ion-icon>
+        </div>
+        <div class="hero">
+            <div class="nav">
+                <div class="time" id="clock"></div>
+                <div class="icon">
+                    <ion-icon name="cellular"></ion-icon>                    
+                    <ion-icon name="wifi"></ion-icon>
+                    <ion-icon name="battery-half"></ion-icon>
+                </div>  
+            </div>
+            <div class="profile">
+                <div class="imgbox">
+                    <img src="../img/a8.png" alt="">
+                </div>
+                <p id="user_name"></p>
+            </div>
+        </div>
+        <div class="content">
+            <p><span id="greeting"></span></p>
+            <div class="todo_wrap">
+                <div class="todo_cont">
+                    <div class="clock">
+                        <div class="hand hour" data-hour-hand></div>
+                        <div class="hand minute" data-minute-hand></div>
+                        <div class="hand second" data-second-hand></div>
+                        <div class="number number1">1</div>
+                        <div class="number number2">2</div>
+                        <div class="number number3">
+                                <div class="three">3</div>
+                            </div>
+                        <div class="number number4">4</div>
+                        <div class="number number5">5</div>
+                        <div class="number number6">
+                            <div class="six">6</div>
+                        </div>
+                        <div class="number number7">7</div>
+                        <div class="number number8">8</div>
+                        <div class="number number9">
+                            <div class="nine">9</div>
+                        </div>
+                        <div class="number number10">10</div>
+                        <div class="number number11">11</div>
+                        <div class="number number12">12</div>
+                    </div>
+        
+                    <div class="todo_container">
+                        <div class="tdl-holder">
+                            <h2>~ Today I need to ~</h2>
+                            <div class="tdl-content">
+                                <ul>
+                                    <li><label><input type="checkbox"><i></i><span>Get up</span><a href='#'>–</a></label></li>
+                                    <li><label><input type="checkbox"><i></i><span>Never give up the fight.</span><a href='#'>–</a></label></li>
+                                    <li><label><input type="checkbox" checked><i></i><span>Solve world problems.</span><a href='#'>–</a></label></li>
+                                    <li><label><input type="checkbox"><i></i><span>Make the day count!</span><a href='#'>–</a></label></li>
+                                </ul>
+                            </div>
+                            <input type="text" class="tdl-new" placeholder="Write new item and hit 'Enter'...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/todo.js"></script> 
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

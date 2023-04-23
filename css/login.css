@@ -1,0 +1,183 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #F5F4F5;
+}
+.wrapper {
+    position: relative;
+    background-color: #EFEFEE;
+    width: 350px;
+    max-width: 95%;
+    height: 90vh;
+    min-height: 46em;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 0 0 10px #888;
+    border-radius: 15px;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #444;
+}
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+.icon ion-icon {
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+}
+.icon ion-icon:nth-of-type(1) {
+    font-size: 18px;
+}
+.circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: RGBA(162, 219, 223, .5);
+}
+.circle.circle1 {
+    left: 0%;
+    top: 0%;
+    transform: translate(-20%, -70%);
+}
+
+.circle.circle2 {
+    left: 0;
+    top: 0%;
+    transform: translate(-45%, -30%);
+}
+.time {
+    position: relative;
+    z-index: 1;
+}
+.hero .imgbox {
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+    margin: auto;
+    /* border: 2px solid blueviolet; */
+}
+.hero .imgbox img {
+    position: relative;
+    margin-top: -18em;
+} 
+.welcome {
+    margin: 25px auto;
+    text-align: center;
+    padding: 0 24px;
+}
+.welcome h2 {
+    font-size: 1.2em;
+    margin: 6.5em auto 1em;
+}
+.welcome p {
+    font-size: 14px;
+    line-height: 2;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 20px 5px;
+}
+.footer button {
+    display: block;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 12px;
+    background: #68D0DF;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: .3s;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.footer button:hover {
+    background: #444;
+}
+.footer p {
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+.footer p a {
+    text-decoration: none;
+    color: #68D0DF;
+}
+.footer p a:hover {
+    color: #222;
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 15px;
+}
+.form .userbox {
+    width: 100%;
+    position: relative;
+}
+.form .userbox:nth-of-type(1) {
+    margin-top: 20px;
+}
+
+.form .userbox:nth-of-type(2) {
+    margin-bottom: 0px;
+}
+.form .userbox input {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #222;
+    border-radius: 50px;
+    border: 1px solid #EFEFEE;
+    outline: none;
+}
+input::placeholder {
+    font-size: 13px;
+    vertical-align: middle;
+    color: #999;
+}
+.forget a {
+    text-decoration: none;
+    color: #68D0DF;
+}
+.forget a:hover {
+    text-decoration: underline;
+    color: #444;
+}
+.eye {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translate(-0%, -50%);
+    cursor: pointer;
+    padding: 8px;
+    font-size: 1.3em;
+}
+.eye.hide {
+    display: none;
+}
