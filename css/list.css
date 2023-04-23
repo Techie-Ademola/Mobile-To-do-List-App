@@ -15,7 +15,7 @@ body{
 ================================================== */
 .tdl-holder{
 	margin:0px auto;
-	width: 300px;
+	width: 100%;
 }
 
 .tdl-holder h2{
@@ -129,6 +129,23 @@ body{
 .tdl-holder input[type="checkbox"]:checked ~ span{	
 	color: #586186;
 	text-decoration: line-through;
+}
+
+.tdl-input {
+	position: relative;
+}
+.tdl-input button {
+	position: absolute;
+	top: 50%;
+	right: 0%;
+	transform: translate(-50%, -50%);
+	line-height: 0;
+	border: none;
+	padding: 8px;
+	border-radius: 6px;
+	font-size: 20px;
+	color: #68D0DF;
+	background: #404a6e;
 }
 
 .tdl-holder input[type="text"]{

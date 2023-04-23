@@ -43,40 +43,49 @@ const tdlNew = document.querySelector('.tdl-new');
 const tdlContent = document.querySelector('.tdl-content ul');
 let tdlItems = JSON.parse(localStorage.getItem('tdlItems')) || [];
 
+function createTodoItem() {
+    const v = tdlNew.value;
+    const s = v.replace(/ +?/g, '');
+    if (s === '' || tdlItems.includes(v)) {
+        if (s === '') {
+            alert('C-mon! To-do item cannot be empty');
+        } else {
+            alert('Uhh Ohh! Duplicate to-do item detected');
+        }
+        return false;
+    } else {
+        const newLi = document.createElement('li');
+        const newLabel = document.createElement('label');
+        const newCheckbox = document.createElement('input');
+        const newI = document.createElement('i');
+        const newSpan = document.createElement('span');
+        const newA = document.createElement('a');
+        newCheckbox.setAttribute('type', 'checkbox');
+        newA.setAttribute('href', '#');
+        newA.textContent = '–';
+        newSpan.textContent = v;
+        newLabel.appendChild(newCheckbox);
+        newLabel.appendChild(newI);
+        newLabel.appendChild(newSpan);
+        newLabel.appendChild(newA);
+        newLi.appendChild(newLabel);
+        tdlContent.appendChild(newLi);
+        tdlItems.push(v);
+        tdlNew.value = '';
+        localStorage.setItem('tdlItems', JSON.stringify(tdlItems));
+    }
+}
+
 tdlNew.addEventListener('keypress', function(e) {
     const code = (e.keyCode ? e.keyCode : e.which);
     if (code === 13) {
-        const v = this.value;
-        const s = v.replace(/ +?/g, '');
-        if (s === '' || tdlItems.includes(v)) {
-            if (s === '') {
-                alert('C-mon! To-do item cannot be empty');
-            } else {
-                alert('Uhh Ohh! Duplicate to-do item detected');
-            }
-            return false;
-        } else {
-            const newLi = document.createElement('li');
-            const newLabel = document.createElement('label');
-            const newCheckbox = document.createElement('input');
-            const newI = document.createElement('i');
-            const newSpan = document.createElement('span');
-            const newA = document.createElement('a');
-            newCheckbox.setAttribute('type', 'checkbox');
-            newA.setAttribute('href', '#');
-            newA.textContent = '–';
-            newSpan.textContent = v;
-            newLabel.appendChild(newCheckbox);
-            newLabel.appendChild(newI);
-            newLabel.appendChild(newSpan);
-            newLabel.appendChild(newA);
-            newLi.appendChild(newLabel);
-            tdlContent.appendChild(newLi);
-            tdlItems.push(v);
-            this.value = '';
-            localStorage.setItem('tdlItems', JSON.stringify(tdlItems));
-        }
+        createTodoItem();
     }
+});
+
+const tdlAddBtn = document.querySelector('.tdl-add-btn');
+tdlAddBtn.addEventListener('click', function() {
+    createTodoItem();
 });
 
 const tdlLinks = document.querySelectorAll('.tdl-content a');
