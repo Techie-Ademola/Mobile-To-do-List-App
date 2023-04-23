@@ -146,6 +146,7 @@ body{
 	font-size: 20px;
 	color: #68D0DF;
 	background: #404a6e;
+	cursor: pointer;
 }
 
 .tdl-holder input[type="text"]{
