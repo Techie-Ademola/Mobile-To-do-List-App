@@ -49,11 +49,36 @@ form.addEventListener('submit', function(e) {
 
     if (user) {
         localStorage.setItem('fullName', user.fullName);
-        
+        Toastify({
+            text: "Login Successful! You made it!",
+            duration: 3000,
+            newWindow: true,
+            close: false,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "#52AB6E",
+            },
+            onClick: function(){} // Callback after click
+        }).showToast();
+
         setTimeout(() => {
             window.location.href = 'dashboard.html';
         }, 2000);
     } else {
-        alert('Invalid email or password');
+        Toastify({
+            text: "Invalid email or password!",
+            duration: 3000,
+            newWindow: true,
+            close: false,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "#de3f53",
+            },
+            onClick: function(){} // Callback after click
+        }).showToast();
     }
 });

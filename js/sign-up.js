@@ -32,7 +32,20 @@ form.addEventListener("submit", (e) => {
             }
         }
         if (duplicateStatus == true) {
-            alert("Oops!, User with this email already exists!")
+            Toastify({
+                text: "Oops!, User with this email already exists!",
+                duration: 3000,
+                newWindow: true,
+                close: false,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "#de3f53",
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
+
             fullName.value = "";
             email.value = "";
             password.value = "";
@@ -45,10 +58,23 @@ form.addEventListener("submit", (e) => {
         
     }
 
-    window.location.href = 'login.html';
-    // alert('success').then(() => {
-    //     window.location.href = 'dashboard.html';
-    // })
+    Toastify({
+        text: "Signup Successful!",
+        duration: 3000,
+        newWindow: true,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#52AB6E",
+        },
+        onClick: function(){} // Callback after click
+    }).showToast();
+    
+    setTimeout(() => {
+        window.location.href = 'login.html';
+    }, 2000);
 
     fullName.value = "";
     email.value = "";

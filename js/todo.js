@@ -48,9 +48,33 @@ function createTodoItem() {
     const s = v.replace(/ +?/g, '');
     if (s === '' || tdlItems.includes(v)) {
         if (s === '') {
-            alert('C-mon! To-do item cannot be empty');
+            Toastify({
+                text: "C-mon! To-do input cannot be empty",
+                duration: 3000,
+                newWindow: true,
+                close: false,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "#de3f53",
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
         } else {
-            alert('Uhh Ohh! Duplicate to-do item detected');
+            Toastify({
+                text: "Uhh Ohh! Duplicate to-do item detected",
+                duration: 3000,
+                newWindow: true,
+                close: false,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "#de3f53",
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
         }
         return false;
     } else {
@@ -184,6 +208,33 @@ setInterval(() => {
 
 // Dashboard Logout Button
 
-function logout() {
-    window.location.href = "login.html";
+const modal = document.querySelector("#modal");
+function conflogout() {
+    // window.location.href = "login.html";
+    modal.style.transform = "scale(1)";
 }
+
+function logout() {
+    Toastify({
+        text: "Successfully logged out! See you soon",
+        duration: 3000,
+        newWindow: true,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#52AB6E",
+        },
+        onClick: function(){} // Callback after click
+    }).showToast();
+
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 2000);
+}
+ 
+function closeModal() {
+	let modal = document.getElementById("modal");
+	modal.style.transform = "scale(0)";
+  }

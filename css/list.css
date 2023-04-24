@@ -72,23 +72,33 @@ body{
 	background-color:#de3f53;
 	border-radius:50%;
 	color:#fff;
-	display:none;
 	float:right;
 	font-weight: bold;
 	line-height: normal;
 	height:16px;
 	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
 	text-decoration: none;
 	width:16px;
-	-webkit-transition: all .2s linear;
-	   -moz-transition: all .2s linear;
-	     -o-transition: all .2s linear;
-		    transition: all .2s linear;	
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: .2s;
+	   -moz-transition: .2s;
+	     -o-transition: .2s;
+		    transition: .2s;
+	transform: translateX(-15px);	
 }
 
 .tdl-holder label:hover a{
-	display: block;
+	visibility: visible;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateX(0px);	
 }
 
 .tdl-holder label a:hover{	
@@ -134,6 +144,7 @@ body{
 .tdl-input {
 	position: relative;
 }
+
 .tdl-input button {
 	position: absolute;
 	top: 50%;

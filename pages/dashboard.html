@@ -9,13 +9,15 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="../css/list.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.css" integrity="sha512-kT0v1BxcibEO2Yc+6Z3W1gNsN+2cZ/U6uITqHhIJl8SAvt9vpO8llugdCPXA7cCnp8G1xbuSqHNMRaR3Zlz9yA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css" integrity="sha512-k+xZuzf4IaGQK9sSDjaNyrfwgxBfoF++7u6Q0ZVUs2rDczx9doNZkYXyyQbnJQcMR4o+IjvAcIj69hHxiOZEig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
     <div class="wrapper">
         <div class="circle circle1"></div>
         <div class="circle circle2"></div>
-        <div class="logout" onclick="logout()">
+        <div class="logout" onclick="conflogout()">
             <ion-icon name="power"></ion-icon>
         </div>
         <div class="hero">
@@ -112,8 +114,33 @@
         </div>
     </div>
 
+    <!---------------- /* Order Modal Section */ ------------------->
+
+    <div id="modal">
+        <section>
+            <div class="alert">!</div>
+            <p class="proName">You're about to log out. Are you sure?</p>
+  
+            <div class="controls">
+              <button class="button" onclick="closeModal()">
+                Cancel
+              </button>
+
+              <button class="button" onclick="logout()">
+                Logout
+              </button>
+            </div>
+        </section>
+      </div>
+
+
+    <!-- J.S Files -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.js" integrity="sha512-ZHzbWDQKpcZxIT9l5KhcnwQTidZFzwK/c7gpUUsFvGjEsxPusdUCyFxjjpc7e/Wj7vLhfMujNx7COwOmzbn+2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="../js/toastify.js"></script>
     <script src="../js/todo.js"></script> 
 
+
+    <!-- Ion-icons J.S Packages -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
