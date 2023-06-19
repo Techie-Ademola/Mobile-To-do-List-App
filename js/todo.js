@@ -5,11 +5,11 @@ let hour = now.getHours();
 let greeting;
 
 if (hour >= 0 && hour < 12) {
-  greeting = "Good Morning 👋";
+    greeting = "Good Morning 👋";
 } else if (hour >= 12 && hour < 18) {
-  greeting = "Good Afternoon 👋";
+    greeting = "Good Afternoon 👋";
 } else {
-  greeting = "Good Evening 👋";
+    greeting = "Good Evening 👋";
 }
 document.getElementById('greeting').innerHTML = greeting;
 console.log(greeting);
@@ -57,9 +57,9 @@ function createTodoItem() {
                 position: "center", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                 style: {
-                  background: "#de3f53",
+                    background: "#de3f53",
                 },
-                onClick: function(){} // Callback after click
+                onClick: function () { } // Callback after click
             }).showToast();
         } else {
             Toastify({
@@ -71,9 +71,9 @@ function createTodoItem() {
                 position: "center", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                 style: {
-                  background: "#de3f53",
+                    background: "#de3f53",
                 },
-                onClick: function(){} // Callback after click
+                onClick: function () { } // Callback after click
             }).showToast();
         }
         return false;
@@ -100,7 +100,7 @@ function createTodoItem() {
     }
 }
 
-tdlNew.addEventListener('keypress', function(e) {
+tdlNew.addEventListener('keypress', function (e) {
     const code = (e.keyCode ? e.keyCode : e.which);
     if (code === 13) {
         createTodoItem();
@@ -108,14 +108,14 @@ tdlNew.addEventListener('keypress', function(e) {
 });
 
 const tdlAddBtn = document.querySelector('.tdl-add-btn');
-tdlAddBtn.addEventListener('click', function() {
+tdlAddBtn.addEventListener('click', function () {
     createTodoItem();
 });
 
 const tdlLinks = document.querySelectorAll('.tdl-content a');
 
 for (let i = 0; i < tdlLinks.length; i++) {
-    tdlLinks[i].addEventListener('click', function() {
+    tdlLinks[i].addEventListener('click', function () {
         const li = this.parentElement.parentElement;
         const span = li.querySelector('span');
         const value = span.textContent;
@@ -124,7 +124,7 @@ for (let i = 0; i < tdlLinks.length; i++) {
             tdlItems.splice(index, 1);
         }
         li.classList.add('remove');
-        setTimeout(function() {
+        setTimeout(function () {
             li.remove();
         }, 100);
 
@@ -132,7 +132,7 @@ for (let i = 0; i < tdlLinks.length; i++) {
     });
 }
 
-tdlContent.addEventListener('click', function(e) {
+tdlContent.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') {
         const li = e.target.parentElement.parentElement;
         const span = li.querySelector('span');
@@ -142,7 +142,7 @@ tdlContent.addEventListener('click', function(e) {
             tdlItems.splice(index, 1);
         }
         li.classList.add('remove');
-        setTimeout(function() {
+        setTimeout(function () {
             li.remove();
         }, 100);
 
@@ -151,22 +151,22 @@ tdlContent.addEventListener('click', function(e) {
 });
 
 for (let i = 0; i < tdlItems.length; i++) {
-  const newLi = document.createElement('li');
-  const newLabel = document.createElement('label');
-  const newCheckbox = document.createElement('input');
-  const newI = document.createElement('i');
-  const newSpan = document.createElement('span');
-  const newA = document.createElement('a');
-  newCheckbox.setAttribute('type', 'checkbox');
-  newA.setAttribute('href', '#');
-  newA.textContent = '–';
-  newSpan.textContent = tdlItems[i];
-  newLabel.appendChild(newCheckbox);
-  newLabel.appendChild(newI);
-  newLabel.appendChild(newSpan);
-  newLabel.appendChild(newA);
-  newLi.appendChild(newLabel);
-  tdlContent.appendChild(newLi);
+    const newLi = document.createElement('li');
+    const newLabel = document.createElement('label');
+    const newCheckbox = document.createElement('input');
+    const newI = document.createElement('i');
+    const newSpan = document.createElement('span');
+    const newA = document.createElement('a');
+    newCheckbox.setAttribute('type', 'checkbox');
+    newA.setAttribute('href', '#');
+    newA.textContent = '–';
+    newSpan.textContent = tdlItems[i];
+    newLabel.appendChild(newCheckbox);
+    newLabel.appendChild(newI);
+    newLabel.appendChild(newSpan);
+    newLabel.appendChild(newA);
+    newLi.appendChild(newLabel);
+    tdlContent.appendChild(newLi);
 }
 
 
@@ -214,27 +214,64 @@ function conflogout() {
     modal.style.transform = "scale(1)";
 }
 
+// function logout() {
+//     Toastify({
+//         text: "Successfully logged out! See you soon",
+//         duration: 3000,
+//         newWindow: true,
+//         close: false,
+//         gravity: "top", // `top` or `bottom`
+//         position: "center", // `left`, `center` or `right`
+//         stopOnFocus: true, // Prevents dismissing of toast on hover
+//         style: {
+//             background: "#52AB6E",
+//         },
+//         onClick: function(){} // Callback after click
+//     }).showToast();
+
+//     setTimeout(() => {
+//         // Modify browser history
+//         window.history.pushState({}, "Login", "login.html");
+//         window.location.href = "login.html";
+//     }, 2000);
+// }
+
 function logout() {
     Toastify({
         text: "Successfully logged out! See you soon",
         duration: 3000,
         newWindow: true,
         close: false,
-        gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "top", 
+        position: "center", 
+        stopOnFocus: true, 
         style: {
-          background: "#52AB6E",
+            background: "#52AB6E",
         },
-        onClick: function(){} // Callback after click
+        onClick: function () { }
     }).showToast();
 
+    // Clear user's credentials from localStorage
+    localStorage.removeItem('fullName');
+    // localStorage.removeItem('users');
+
     setTimeout(() => {
+        window.history.pushState({}, "Login", "login.html");
         window.location.href = "login.html";
     }, 2000);
 }
- 
+
+// Listen for popstate event (back button pressed)
+window.addEventListener('popstate', function(event) {
+    // Check if user's data is in localStorage
+    if (!localStorage.getItem('fullName') || !localStorage.getItem('users')) {
+        window.location.href = "login.html";
+    }
+    event.preventDefault();
+}, false);
+
+
 function closeModal() {
-	let modal = document.getElementById("modal");
-	modal.style.transform = "scale(0)";
-  }
+    let modal = document.getElementById("modal");
+    modal.style.transform = "scale(0)";
+}
