@@ -1,61 +1,71 @@
 const fullName = document.getElementById("fullname_");
 const email = document.getElementById("email_");
-const password = document.getElementById("password_")
+const password = document.getElementById("password_");
 const conf_password = document.getElementById("conf_password");
 const form = document.querySelector('.signupform');
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-     const userinput = {
+    if (password.value !== conf_password.value) {
+        Toastify({
+            text: "Oops!, Confirm password doesn't match!",
+            duration: 3000,
+            newWindow: true,
+            close: false,
+            gravity: "top",
+            position: "center",
+            stopOnFocus: true,
+            style: {
+                background: "#de3f53",
+            },
+            onClick: function () { } 
+        }).showToast();
+        return;
+    }
+
+    const userinput = {
         fullName: fullName.value,
         email: email.value,
         password: password.value,
-        conf_password: password.value,
+        conf_password: conf_password.value,
         uniqueId: Math.round(Math.random() * 1000)
-    
     }
-   
+
     const users = [];
-    const records = JSON.parse(localStorage.getItem('users')); 
+    const records = JSON.parse(localStorage.getItem('users'));
     console.log(records)
     let duplicateStatus = false;
     if (records == null) {
         users.push(userinput)
         localStorage.setItem('users', JSON.stringify(users));
         window.location.href = 'login.html';
-
     } else {
-        for (var i = 0; i < records.length; i++){
+        for (var i = 0; i < records.length; i++) {
             if (records[i].email == userinput.email) {
-                duplicateStatus = true
+                duplicateStatus = true;
             }
         }
-        if (duplicateStatus == true) {
+        if (duplicateStatus) {
             Toastify({
                 text: "Oops!, User with this email already exists!",
                 duration: 3000,
                 newWindow: true,
                 close: false,
-                gravity: "top", // `top` or `bottom`
-                position: "center", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
+                gravity: "top",
+                position: "center",
+                stopOnFocus: true,
                 style: {
-                  background: "#de3f53",
+                    background: "#de3f53",
                 },
-                onClick: function(){} // Callback after click
+                onClick: function () { } 
             }).showToast();
 
-            fullName.value = "";
-            email.value = "";
-            password.value = "";
-            conf_password.value = "";
             return;
         } else {
             records.push(userinput)
             localStorage.setItem('users', JSON.stringify(records))
         }
-        
     }
 
     Toastify({
@@ -63,15 +73,15 @@ form.addEventListener("submit", (e) => {
         duration: 3000,
         newWindow: true,
         close: false,
-        gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
         style: {
-          background: "#52AB6E",
+            background: "#52AB6E",
         },
-        onClick: function(){} // Callback after click
+        onClick: function () { } 
     }).showToast();
-    
+
     setTimeout(() => {
         window.location.href = 'login.html';
     }, 2000);
@@ -81,8 +91,8 @@ form.addEventListener("submit", (e) => {
     password.value = "";
     conf_password.value = "";
     uniqueId.value = "";
-    
-})
+});
+
 
 function display() {
     let show1 = document.querySelector('.show1')

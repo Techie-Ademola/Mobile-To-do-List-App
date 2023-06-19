@@ -54,13 +54,13 @@ form.addEventListener('submit', function(e) {
             duration: 3000,
             newWindow: true,
             close: false,
-            gravity: "top", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "top", 
+            position: "center", 
+            stopOnFocus: true, 
             style: {
               background: "#52AB6E",
             },
-            onClick: function(){} // Callback after click
+            onClick: function(){} 
         }).showToast();
 
         setTimeout(() => {
@@ -72,13 +72,13 @@ form.addEventListener('submit', function(e) {
             duration: 3000,
             newWindow: true,
             close: false,
-            gravity: "top", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "top", 
+            position: "center", 
+            stopOnFocus: true, 
             style: {
               background: "#de3f53",
             },
-            onClick: function(){} // Callback after click
+            onClick: function(){} 
         }).showToast();
     }
 });

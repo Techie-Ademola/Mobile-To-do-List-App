@@ -214,28 +214,6 @@ function conflogout() {
     modal.style.transform = "scale(1)";
 }
 
-// function logout() {
-//     Toastify({
-//         text: "Successfully logged out! See you soon",
-//         duration: 3000,
-//         newWindow: true,
-//         close: false,
-//         gravity: "top", // `top` or `bottom`
-//         position: "center", // `left`, `center` or `right`
-//         stopOnFocus: true, // Prevents dismissing of toast on hover
-//         style: {
-//             background: "#52AB6E",
-//         },
-//         onClick: function(){} // Callback after click
-//     }).showToast();
-
-//     setTimeout(() => {
-//         // Modify browser history
-//         window.history.pushState({}, "Login", "login.html");
-//         window.location.href = "login.html";
-//     }, 2000);
-// }
-
 function logout() {
     Toastify({
         text: "Successfully logged out! See you soon",
